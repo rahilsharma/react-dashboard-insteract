@@ -11,10 +11,12 @@ var gridDataArrayDesc = [{ date: 'Oct 29 2016 2:42:23 AM', buyer: 'rahil@sa.com'
 var gridDataDetailsLookup = {
     name: 'Rahil', company: 'some company', telephone: '232314234324'
 };
+var gridDataSrollAdd = [{ date: 'Oct 5 2016 2:42:23 AM', buyer: 'rahil@sa.com', items: 5, total: '$2345' }, { date: 'Oct 4 2016 2:42:23 AM', buyer: 'rahil@sa.com', items: 5, total: '$2345' }, { date: 'Oct 2 2016 2:42:23 AM', buyer: 'rahil@sa.com', items: 5, total: '$2345' }, { date: 'Oct 1 2016 2:42:23 AM', buyer: 'rahil@sa.com', items: 5, total: '$2345' }, { date: 'Sept 3 2016 2:42:23 AM', buyer: 'rahil@sa.com', items: 5, total: '$2345' }, { date: 'Sept 1 2016 2:42:23 AM', buyer: 'rahil@sa.com', items: 5, total: '$2345' }];
 var gridData = {
     gridDataArrayAsc: gridDataArrayAsc,
     gridDataArrayDesc: gridDataArrayDesc,
-    gridDataDetailsLookup: gridDataDetailsLookup
+    gridDataDetailsLookup: gridDataDetailsLookup,
+    gridDataSrollAdd: gridDataSrollAdd
 };
 
 exports.default = gridData;

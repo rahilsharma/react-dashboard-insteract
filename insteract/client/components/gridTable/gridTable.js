@@ -64,11 +64,20 @@ const GridTable = React.createClass({
         )
     },
     sortTable:function (x,y) {
-
         if (x == 0 && y==1){
-          console.log("Sort The table");
+            var orderBefore = this.state.order;
+            orderBefore = orderBefore * -1;
+            var gridData ;
+            if (orderBefore == 1) {
+                 gridData = this.props.gridData.gridDataArrayDesc;
+            }
+            else{
+              gridData  = this.props.gridData.gridDataArrayDesc
+            }
+            this.setState({
+                datas:gridData,order:orderBefore
+            })
         }
-
     },
     componentDidMount:function () {
         document.getElementById("rahilCustomTable").addEventListener("scroll", this.handleScroll);
@@ -78,18 +87,13 @@ const GridTable = React.createClass({
     },
     handleScroll:function () {
         var that = this;
-        console.log("handle scroll was called");
         var divId = "rahilCustomTable";
         var scrollTop = document.getElementById(divId).scrollTop;
         var innerHeight = document.getElementById(divId).offsetHeight;
         var scrollHeight = document.getElementById(divId).scrollHeight;
-        console.log(scrollTop+innerHeight);
-        console.log(scrollHeight * 0.80);
         if ((scrollTop + innerHeight) > (scrollHeight * .80)) {
-             console.log("60% reached");
-             var datas = that.state.datas;
-            datas.push(5);
-            datas.push(6);
+            var datas = that.state.datas;
+            datas.push()
             that.setState({datas:datas});
         }
     },
