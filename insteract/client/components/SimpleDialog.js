@@ -4,12 +4,6 @@ import FlatButton from 'material-ui/FlatButton';
 const style = {
     margin: 0,
 };
-/**
- * Dialog with action buttons. The actions are passed in as an array of React objects,
- * in this example [FlatButtons](/#/components/flat-button).
- *
- * You can also close this dialog by clicking outside the dialog, or with the 'Esc' key.
- */
 //pass them as props over here
 import RaisedButton from 'material-ui/RaisedButton';
 import ActionZoom from 'material-ui/svg-icons/action/zoom-out';

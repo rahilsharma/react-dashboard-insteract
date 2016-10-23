@@ -26,21 +26,19 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var _components = {
     _component: {}
 };
 
 var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
-    filename: 'C:/Users/Rahil/WebstormProjects/insteract/insteract/client/components/materialCard.js',
+    filename: 'C:/Users/Rahil/WebstormProjects/insteract/insteract/client/components/HighCharts.js',
     components: _components,
     locals: [module],
     imports: [_react3.default]
 });
 
 var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
-    filename: 'C:/Users/Rahil/WebstormProjects/insteract/insteract/client/components/materialCard.js',
+    filename: 'C:/Users/Rahil/WebstormProjects/insteract/insteract/client/components/HighCharts.js',
     components: _components,
     locals: [],
     imports: [_react3.default, _redboxReact3.default]
@@ -56,32 +54,9 @@ function _wrapComponent(id) {
 
 
 var ReactHighcharts = require('react-highcharts');
-var config = {
-    xAxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    },
-    series: [{
-        data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 295.6, 454.4]
-    }],
-    chart: {
-        backgroundColor: '#039eb2',
-        height: 300,
-        polar: true,
-        type: 'line',
-        style: {
-            fontFamily: 'Roboto'
 
-        }
-    },
-    title: _defineProperty({
-        text: 'Records', color: 'white', fontFamily: 'Roboto'
-    }, 'color', "white"),
-    subtitle: _defineProperty({
-        text: 'Oct 2016 - Nov 2016', color: 'white', fontFamily: 'Roboto'
-    }, 'color', "white")
-};
-var CardExampleWithAvatar = _wrapComponent('_component')(_react3.default.createClass({
-    displayName: 'CardExampleWithAvatar',
+var Highcharts = _wrapComponent('_component')(_react3.default.createClass({
+    displayName: 'Highcharts',
     render: function render() {
         return _react3.default.createElement(
             'div',
@@ -99,11 +74,12 @@ var CardExampleWithAvatar = _wrapComponent('_component')(_react3.default.createC
     },
 
     componentDidMount: function componentDidMount() {
+        var config = this.props.graphConfig;
         _reactDom2.default.render(_react3.default.createElement(ReactHighcharts, { config: config }), document.getElementById('test'));
     }
 
 }));
 
-exports.default = CardExampleWithAvatar;
+exports.default = Highcharts;
 
-//# sourceMappingURL=materialCard-compiled.js.map
+//# sourceMappingURL=HighCharts-compiled.js.map

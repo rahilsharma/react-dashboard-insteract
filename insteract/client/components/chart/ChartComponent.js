@@ -1,12 +1,12 @@
 import React from 'react';
 
-import CardExampleWithAvatar from './materialCard';
-const Main = React.createClass({
+import Highcharts from './Highcharts';
+const ChartComponent = React.createClass({
   render() {
     return (
         <div className="row">
           <div className="col-xs-12 col-lg-12 col-md-12">
-            <CardExampleWithAvatar/>
+            <Highcharts graphConfig={this.props.graphConfig}/>
         </div>
           </div>
     )
@@ -14,4 +14,4 @@ const Main = React.createClass({
 
 });
 
-export default Main;
+export default ChartComponent;
