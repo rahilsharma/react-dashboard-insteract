@@ -3,10 +3,10 @@
  */
 const chartConfig = {
     xAxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr']
+        categories: ['10/16/2016', '10/17/2016', '10/18/2016', '10/19/2016','10/20/2016', '10/21/2016', '10/22/2016']
     },
     series: [{
-        data: [29.9, 71.5, 106.4, 129.2]
+        data: [29, 71, 106, 129, 12,72,199]
     }],
     chart: {
         backgroundColor: '#039eb2',

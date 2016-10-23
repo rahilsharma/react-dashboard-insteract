@@ -1,18 +1,52 @@
-/**
- * Created by Rahil on 19-10-2016.
- */
+
 import React from 'react';
 import SingleCard from './SingleCard';
 const Cards = React.createClass({
     render() {
+        console.log(this.state.recordsData);
+        var totalRecords = this.state.recordsData.totalRecords;
+        var customerCount = this.state.recordsData.customerCount;
+        var totalValue = this.state.recordsData.totalValue;
+
         return (
             <div className="row" style={{paddingTop:'10px'}}>
-               <SingleCard name="Total Records" value={this.props.recordsData.totalRecords}/>
-                <SingleCard name="Customer Count" value={this.props.recordsData.customerCount}/>
-                <SingleCard name="Total Value" value={this.props.recordsData.totalValue}/>
+               <SingleCard name="Total Records" value={totalRecords}/>
+                <SingleCard name="Customer Count" value={customerCount}/>
+                <SingleCard name="Total Value" value={totalValue}/>
             </div>
 
         )
+    },
+    componentDidMount:function () {
+       var useBackend = this.props.USE_BACKEND;
+        if (useBackend){
+           console.log("making call to ::" + this.props.backendUrl + "getInitialData");
+            // url (required), options (optional)
+            fetch(this.props.backendUrl + "getInitialData", {
+                method: 'get',  mode: 'cors',
+            }).then(function(response) {
+               console.log("got response");
+               console.log(response);
+            }).catch(function(err) {
+                // Error :(
+                console.log(err);
+            });
+        }
+        else {
+         this.setState({
+             recordsData:this.props.recordsData
+         })
+        }
+  },
+    getInitialState:function () {
+        var useBackend = this.props.USE_BACKEND;
+        var recordsData= {};
+        if (useBackend){
+           recordsData = this.props.recordsData;
+        }
+        return {
+            recordsData:recordsData
+        }
     }
 });
 

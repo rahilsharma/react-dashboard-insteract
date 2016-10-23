@@ -48,21 +48,54 @@ function _wrapComponent(id) {
     return function (Component) {
         return _reactTransformHmr2(_reactTransformCatchErrors2(Component, id), id);
     };
-} /**
-   * Created by Rahil on 19-10-2016.
-   */
-
+}
 
 var Cards = _wrapComponent('_component')(_react3.default.createClass({
     displayName: 'Cards',
     render: function render() {
+        console.log(this.state.recordsData);
+        var totalRecords = this.state.recordsData.totalRecords;
+        var customerCount = this.state.recordsData.customerCount;
+        var totalValue = this.state.recordsData.totalValue;
+
         return _react3.default.createElement(
             'div',
             { className: 'row', style: { paddingTop: '10px' } },
-            _react3.default.createElement(_SingleCard2.default, { name: 'Total Records', value: this.props.recordsData.totalRecords }),
-            _react3.default.createElement(_SingleCard2.default, { name: 'Customer Count', value: this.props.recordsData.customerCount }),
-            _react3.default.createElement(_SingleCard2.default, { name: 'Total Value', value: this.props.recordsData.totalValue })
+            _react3.default.createElement(_SingleCard2.default, { name: 'Total Records', value: totalRecords }),
+            _react3.default.createElement(_SingleCard2.default, { name: 'Customer Count', value: customerCount }),
+            _react3.default.createElement(_SingleCard2.default, { name: 'Total Value', value: totalValue })
         );
+    },
+
+    componentDidMount: function componentDidMount() {
+        var useBackend = this.props.USE_BACKEND;
+        if (useBackend) {
+            console.log("making call to ::" + this.props.backendUrl + "getInitialData");
+            // url (required), options (optional)
+            fetch(this.props.backendUrl + "getInitialData", {
+                method: 'get', mode: 'cors'
+            }).then(function (response) {
+                console.log("got response");
+                console.log(response);
+            }).catch(function (err) {
+                // Error :(
+                console.log(err);
+            });
+        } else {
+            this.setState({
+                recordsData: this.props.recordsData
+            });
+        }
+    },
+    getInitialState: function getInitialState() {
+        var useBackend = this.props.USE_BACKEND;
+        var recordsData = {};
+        if (useBackend) {
+            recordsData = this.props.recordsData;
+        }
+        return {
+            recordsData: recordsData
+        };
     }
 }));
 
