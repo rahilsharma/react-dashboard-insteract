@@ -5,7 +5,7 @@ import css from './styles/rahil.css';
 // Import Components
 import ChartComponent from './components/chart/ChartComponent';
 import Cards from './components/cards/Cards';
-import GridTable from './components/materialTable';
+import GridTable from './components/gridTable/gridTable';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import injectTapEventPlugin from 'react-tap-event-plugin';

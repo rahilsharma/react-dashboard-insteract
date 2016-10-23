@@ -1,6 +1,5 @@
 import React from 'react';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
-import ActionZoom from 'material-ui/svg-icons/action/zoom-out';
 import DialogExampleSimple from './SimpleDialog';
 import ArrowDownward from 'material-ui/svg-icons/navigation/arrow-downward';
 import ArrowUpward from 'material-ui/svg-icons/navigation/arrow-upward';
@@ -10,7 +9,8 @@ const style = {
 const GridTable = React.createClass({
     getInitialState:function () {
       return{
-          datas:[]
+          datas:[],
+          order:1 //1-->> Ascending -1 -->> descending
       }
     },
     render(){

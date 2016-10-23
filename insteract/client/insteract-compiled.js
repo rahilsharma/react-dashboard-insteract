@@ -32,9 +32,9 @@ var _Cards = require('./components/cards/Cards');
 
 var _Cards2 = _interopRequireDefault(_Cards);
 
-var _materialTable = require('./components/materialTable');
+var _gridTable = require('./components/gridTable/gridTable');
 
-var _materialTable2 = _interopRequireDefault(_materialTable);
+var _gridTable2 = _interopRequireDefault(_gridTable);
 
 var _MuiThemeProvider = require('material-ui/styles/MuiThemeProvider');
 
@@ -108,7 +108,7 @@ var Insteract = _wrapComponent('_component')(_react3.default.createClass({
                 _react3.default.createElement(_AppBar2.default, { title: _AppData2.default.title, iconClassNameRight: _AppData2.default.iconClassNameRight }),
                 _react3.default.createElement(_ChartComponent2.default, { graphConfig: _ChartData2.default }),
                 _react3.default.createElement(_Cards2.default, { recordsData: _RecordsData2.default }),
-                _react3.default.createElement(_materialTable2.default, { gridData: _gridData2.default })
+                _react3.default.createElement(_gridTable2.default, { gridData: _gridData2.default })
             )
         );
     },
