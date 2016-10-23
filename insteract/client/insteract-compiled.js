@@ -28,13 +28,13 @@ var _ChartComponent = require('./components/chart/ChartComponent');
 
 var _ChartComponent2 = _interopRequireDefault(_ChartComponent);
 
-var _Cards = require('./components/Cards');
+var _Cards = require('./components/cards/Cards');
 
 var _Cards2 = _interopRequireDefault(_Cards);
 
-var _GridTable = require('./components/GridTable');
+var _materialTable = require('./components/materialTable');
 
-var _GridTable2 = _interopRequireDefault(_GridTable);
+var _materialTable2 = _interopRequireDefault(_materialTable);
 
 var _MuiThemeProvider = require('material-ui/styles/MuiThemeProvider');
 
@@ -55,6 +55,10 @@ var _ChartData2 = _interopRequireDefault(_ChartData);
 var _AppData = require('./data/AppData');
 
 var _AppData2 = _interopRequireDefault(_AppData);
+
+var _RecordsData = require('./data/RecordsData');
+
+var _RecordsData2 = _interopRequireDefault(_RecordsData);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -85,8 +89,8 @@ function _wrapComponent(id) {
 
 // Import Components
 
+//data variable till backend api is not integrated
 
-(0, _reactTapEventPlugin2.default)();
 
 var Insteract = _wrapComponent('_component')(_react3.default.createClass({
     displayName: 'Insteract',
@@ -99,10 +103,15 @@ var Insteract = _wrapComponent('_component')(_react3.default.createClass({
                 null,
                 _react3.default.createElement(_AppBar2.default, { title: _AppData2.default.title, iconClassNameRight: _AppData2.default.iconClassNameRight }),
                 _react3.default.createElement(_ChartComponent2.default, { graphConfig: _ChartData2.default }),
-                _react3.default.createElement(_Cards2.default, null),
-                _react3.default.createElement(_GridTable2.default, null)
+                _react3.default.createElement(_Cards2.default, { recordsData: _RecordsData2.default }),
+                _react3.default.createElement(_materialTable2.default, null)
             )
         );
+    },
+
+    componentDidMount: function componentDidMount() {
+        //injecting tap event
+        (0, _reactTapEventPlugin2.default)();
     }
 }));
 _reactDom2.default.render(_react3.default.createElement(Insteract, null), document.getElementById('root'));

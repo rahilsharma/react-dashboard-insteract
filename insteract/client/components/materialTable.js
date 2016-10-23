@@ -7,7 +7,7 @@ import ArrowUpward from 'material-ui/svg-icons/navigation/arrow-upward';
 const style = {
     margin: 0,
 };
-const TableExampleSimple = React.createClass({
+const GridTable = React.createClass({
     getInitialState:function () {
       return{
           datas:[]
@@ -86,4 +86,4 @@ const TableExampleSimple = React.createClass({
         console.log("A button was clicked at row" + x);
     }
 });
-export default TableExampleSimple;
+export default GridTable;

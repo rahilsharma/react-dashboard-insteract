@@ -31,14 +31,14 @@ var _components = {
 };
 
 var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
-    filename: 'C:/Users/Rahil/WebstormProjects/insteract/insteract/client/components/Cards.js',
+    filename: 'C:/Users/Rahil/WebstormProjects/insteract/insteract/client/components/cards/Cards.js',
     components: _components,
     locals: [module],
     imports: [_react3.default]
 });
 
 var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
-    filename: 'C:/Users/Rahil/WebstormProjects/insteract/insteract/client/components/Cards.js',
+    filename: 'C:/Users/Rahil/WebstormProjects/insteract/insteract/client/components/cards/Cards.js',
     components: _components,
     locals: [],
     imports: [_react3.default, _redboxReact3.default]
@@ -59,9 +59,9 @@ var Cards = _wrapComponent('_component')(_react3.default.createClass({
         return _react3.default.createElement(
             'div',
             { className: 'row', style: { paddingTop: '10px' } },
-            _react3.default.createElement(_SingleCard2.default, null),
-            _react3.default.createElement(_SingleCard2.default, null),
-            _react3.default.createElement(_SingleCard2.default, null)
+            _react3.default.createElement(_SingleCard2.default, { name: 'Total Records', value: this.props.recordsData.totalRecords }),
+            _react3.default.createElement(_SingleCard2.default, { name: 'Customer Count', value: this.props.recordsData.customerCount }),
+            _react3.default.createElement(_SingleCard2.default, { name: 'Total Value', value: this.props.recordsData.totalValue })
         );
     }
 }));

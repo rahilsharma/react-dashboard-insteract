@@ -67,8 +67,8 @@ function _wrapComponent(id) {
 var style = {
     margin: 0
 };
-var TableExampleSimple = _wrapComponent('_component')(_react3.default.createClass({
-    displayName: 'TableExampleSimple',
+var GridTable = _wrapComponent('_component')(_react3.default.createClass({
+    displayName: 'GridTable',
 
     getInitialState: function getInitialState() {
         return {
@@ -200,6 +200,6 @@ var TableExampleSimple = _wrapComponent('_component')(_react3.default.createClas
         console.log("A button was clicked at row" + x);
     }
 }));
-exports.default = TableExampleSimple;
+exports.default = GridTable;
 
 //# sourceMappingURL=materialTable-compiled.js.map

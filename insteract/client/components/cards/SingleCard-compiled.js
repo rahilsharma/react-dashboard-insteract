@@ -53,9 +53,20 @@ function _wrapComponent(id) {
    */
 
 
+var styleRaisedButton = {
+    height: '100px'
+};
+var styleRaisedButtonChildren = {
+    paddingTop: '20px', fontSize: '24px'
+};
+var styleInsideDiv = {
+    marginTop: '2px', fontSize: '15px'
+};
 var SingleCard = _wrapComponent('_component')(_react3.default.createClass({
     displayName: 'SingleCard',
     render: function render() {
+        var name = this.props.name;
+        var value = this.props.value;
         return _react3.default.createElement(
             'div',
             { className: 'col-lg-4 col-md-4 col-xs-12' },
@@ -64,20 +75,20 @@ var SingleCard = _wrapComponent('_component')(_react3.default.createClass({
                     null,
                     _react3.default.createElement(
                         'div',
-                        { style: { paddingTop: '20px', fontSize: '24px' } },
+                        { style: styleRaisedButtonChildren },
                         _react3.default.createElement(
                             'b',
                             null,
-                            '10023'
+                            value
                         )
                     ),
                     _react3.default.createElement(
                         'div',
-                        { style: { marginTop: '2px', fontSize: '15px' } },
+                        { style: styleInsideDiv },
                         _react3.default.createElement('br', null),
-                        'Total Records'
+                        name
                     )
-                ), style: { height: '100px' }, primary: true, fullWidth: true })
+                ), style: styleRaisedButton, primary: true, fullWidth: true })
         );
     }
 }));
