@@ -12,7 +12,8 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 //data variable till backend api is not integrated
 import graphConfig from './data/ChartData';
 import appData from './data/AppData';
-import RecordsData from './data/RecordsData';
+import recordsData from './data/RecordsData';
+import gridData from './data/gridData';
 const Insteract = React.createClass({
     render() {
         return (
@@ -20,8 +21,8 @@ const Insteract = React.createClass({
                 <div>
                     <AppBar title={appData.title} iconClassNameRight={appData.iconClassNameRight}/>
                         <ChartComponent graphConfig={graphConfig} />
-                        <Cards recordsData={RecordsData}/>
-                        <GridTable/>
+                        <Cards recordsData={recordsData}/>
+                        <GridTable gridData={gridData}/>
                 </div>
             </MuiThemeProvider>
         )

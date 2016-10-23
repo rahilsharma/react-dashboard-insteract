@@ -60,6 +60,10 @@ var _RecordsData = require('./data/RecordsData');
 
 var _RecordsData2 = _interopRequireDefault(_RecordsData);
 
+var _gridData = require('./data/gridData');
+
+var _gridData2 = _interopRequireDefault(_gridData);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _components = {
@@ -104,7 +108,7 @@ var Insteract = _wrapComponent('_component')(_react3.default.createClass({
                 _react3.default.createElement(_AppBar2.default, { title: _AppData2.default.title, iconClassNameRight: _AppData2.default.iconClassNameRight }),
                 _react3.default.createElement(_ChartComponent2.default, { graphConfig: _ChartData2.default }),
                 _react3.default.createElement(_Cards2.default, { recordsData: _RecordsData2.default }),
-                _react3.default.createElement(_materialTable2.default, null)
+                _react3.default.createElement(_materialTable2.default, { gridData: _gridData2.default })
             )
         );
     },

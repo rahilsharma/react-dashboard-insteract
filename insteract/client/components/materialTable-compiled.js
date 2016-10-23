@@ -85,22 +85,22 @@ var GridTable = _wrapComponent('_component')(_react3.default.createClass({
                 _react3.default.createElement(
                     _Table.TableRowColumn,
                     null,
-                    '2'
+                    datas[i].date
                 ),
                 _react3.default.createElement(
                     _Table.TableRowColumn,
                     null,
-                    'Randal White'
+                    datas[i].buyer
                 ),
                 _react3.default.createElement(
                     _Table.TableRowColumn,
                     null,
-                    'Unemployed'
+                    datas[i].items
                 ),
                 _react3.default.createElement(
                     _Table.TableRowColumn,
                     null,
-                    'Randal White'
+                    datas[i].total
                 ),
                 _react3.default.createElement(
                     _Table.TableRowColumn,
@@ -176,7 +176,7 @@ var GridTable = _wrapComponent('_component')(_react3.default.createClass({
     componentDidMount: function componentDidMount() {
         document.getElementById("rahilCustomTable").addEventListener("scroll", this.handleScroll);
         this.setState({
-            datas: [1, 2, 3, 4, 5, 6, 7, 8]
+            datas: this.props.gridData.gridDataArrayAsc
         });
     },
     handleScroll: function handleScroll() {

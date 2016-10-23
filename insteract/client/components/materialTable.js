@@ -18,10 +18,10 @@ const GridTable = React.createClass({
         var rows = [];
         for (var i=0;i<datas.length;i++){
             rows.push(<TableRow>
-                <TableRowColumn>2</TableRowColumn>
-                <TableRowColumn>Randal White</TableRowColumn>
-                <TableRowColumn>Unemployed</TableRowColumn>
-                <TableRowColumn>Randal White</TableRowColumn>
+                <TableRowColumn>{datas[i].date}</TableRowColumn>
+                <TableRowColumn>{datas[i].buyer}</TableRowColumn>
+                <TableRowColumn>{datas[i].items}</TableRowColumn>
+                <TableRowColumn>{datas[i].total}</TableRowColumn>
                 <TableRowColumn>
                     <DialogExampleSimple></DialogExampleSimple>
                 </TableRowColumn>
@@ -62,7 +62,7 @@ const GridTable = React.createClass({
     componentDidMount:function () {
         document.getElementById("rahilCustomTable").addEventListener("scroll", this.handleScroll);
         this.setState({
-            datas:[1,2,3,4,5,6,7,8]
+            datas:this.props.gridData.gridDataArrayAsc
         })
     },
     handleScroll:function () {
