@@ -34,6 +34,10 @@ var _arrowUpward = require('material-ui/svg-icons/navigation/arrow-upward');
 
 var _arrowUpward2 = _interopRequireDefault(_arrowUpward);
 
+var _GridSuperHeader = require('./GridSuperHeader');
+
+var _GridSuperHeader2 = _interopRequireDefault(_GridSuperHeader);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _components = {
@@ -60,8 +64,15 @@ function _wrapComponent(id) {
     };
 }
 
-var style = {
-    margin: 0
+var gridInit = {
+    tableId: "customTableIdRahil",
+    height: '300px',
+    fixedHeader: true,
+    selectable: false,
+    tbodydisplayRowCheckbox: false
+};
+var divStyle = {
+    marginTop: '5px'
 };
 var GridTable = _wrapComponent('_component')(_react3.default.createClass({
     displayName: 'GridTable',
@@ -118,26 +129,14 @@ var GridTable = _wrapComponent('_component')(_react3.default.createClass({
         }
         return _react3.default.createElement(
             'div',
-            { style: { marginTop: '5px' } },
+            { style: divStyle },
             _react3.default.createElement(
                 _Table.Table,
-                { id: 'customTableIdRahil', height: '300px', fixedHeader: true, selectable: false, onCellClick: this.sortTable },
-                _react3.default.createElement(
-                    _Table.TableHeader,
-                    { adjustForCheckbox: false, displaySelectAll: false },
-                    _react3.default.createElement(
-                        _Table.TableRow,
-                        null,
-                        _react3.default.createElement(
-                            _Table.TableHeaderColumn,
-                            { colSpan: '3', tooltip: 'Orders', style: { textAlign: 'center', fontSize: '20px', fontWeight: 'bold' } },
-                            'Orders'
-                        )
-                    )
-                ),
+                { id: gridInit.tableId, height: gridInit.height, fixedHeader: gridInit.fixedHeader, selectable: gridInit.selectable, onCellClick: this.sortTable },
+                _react3.default.createElement(_GridSuperHeader2.default, null),
                 _react3.default.createElement(
                     _Table.TableBody,
-                    { displayRowCheckbox: false },
+                    { displayRowCheckbox: gridInit.tbodydisplayRowCheckbox },
                     _react3.default.createElement(
                         _Table.TableRow,
                         null,
@@ -179,11 +178,13 @@ var GridTable = _wrapComponent('_component')(_react3.default.createClass({
             var orderBefore = this.state.order;
             orderBefore = orderBefore * -1;
             var gridData;
+            console.log(orderBefore);
             if (orderBefore == 1) {
-                gridData = this.props.gridData.gridDataArrayDesc;
+                gridData = this.props.gridData.gridDataArrayAsc;
             } else {
                 gridData = this.props.gridData.gridDataArrayDesc;
             }
+            console.log(gridData);
             this.setState({
                 datas: gridData, order: orderBefore
             });
@@ -203,8 +204,9 @@ var GridTable = _wrapComponent('_component')(_react3.default.createClass({
         var scrollHeight = document.getElementById(divId).scrollHeight;
         if (scrollTop + innerHeight > scrollHeight * .80) {
             var datas = that.state.datas;
-            datas.push();
-            that.setState({ datas: datas });
+            var scrollData = that.props.gridData.gridDataSrollAdd;
+            var newDatas = datas.concat(scrollData);
+            that.setState({ datas: newDatas });
         }
     },
     buttonClick: function buttonClick(x) {

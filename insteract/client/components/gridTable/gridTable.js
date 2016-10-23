@@ -3,9 +3,17 @@ import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColu
 import DialogExampleSimple from './SimpleDialog';
 import ArrowDownward from 'material-ui/svg-icons/navigation/arrow-downward';
 import ArrowUpward from 'material-ui/svg-icons/navigation/arrow-upward';
-const style = {
-    margin: 0,
+import GridSuperHeader from './GridSuperHeader';
+const gridInit = {
+    tableId : "customTableIdRahil",
+    height:'300px',
+    fixedHeader:true,
+    selectable:false,
+    tbodydisplayRowCheckbox:false
 };
+const divStyle= {
+    marginTop:'5px'
+}
 const GridTable = React.createClass({
     getInitialState:function () {
       return{
@@ -39,16 +47,10 @@ const GridTable = React.createClass({
             </TableRow>)
         }
         return(
-        <div style={{marginTop:'5px'}}>
-            <Table id="customTableIdRahil" height={'300px'} fixedHeader={true} selectable={false} onCellClick={this.sortTable} >
-                <TableHeader adjustForCheckbox={false} displaySelectAll={false}>
-                    <TableRow>
-                        <TableHeaderColumn colSpan="3" tooltip="Orders" style={{textAlign: 'center',fontSize:'20px' , fontWeight:'bold' }}>
-                            Orders
-                        </TableHeaderColumn>
-                    </TableRow>
-                </TableHeader>
-                <TableBody  displayRowCheckbox={false}>
+        <div style={divStyle}>
+            <Table id={gridInit.tableId} height={gridInit.height} fixedHeader={gridInit.fixedHeader} selectable={gridInit.selectable} onCellClick={this.sortTable} >
+                <GridSuperHeader/>
+                <TableBody  displayRowCheckbox={gridInit.tbodydisplayRowCheckbox}>
                     <TableRow >
                         <TableRowColumn  style={{fontSize:'16px',fontWeight:'bold',cursor:'pointer'}} >Date {arrrow}</TableRowColumn>
                         <TableRowColumn style={{fontSize:'16px',fontWeight:'bold'}}>Buyer</TableRowColumn>
@@ -68,12 +70,14 @@ const GridTable = React.createClass({
             var orderBefore = this.state.order;
             orderBefore = orderBefore * -1;
             var gridData ;
+            console.log(orderBefore);
             if (orderBefore == 1) {
-                 gridData = this.props.gridData.gridDataArrayDesc;
+                 gridData = this.props.gridData.gridDataArrayAsc;
             }
             else{
-              gridData  = this.props.gridData.gridDataArrayDesc
+              gridData  = this.props.gridData.gridDataArrayDesc;
             }
+            console.log(gridData);
             this.setState({
                 datas:gridData,order:orderBefore
             })
@@ -93,8 +97,9 @@ const GridTable = React.createClass({
         var scrollHeight = document.getElementById(divId).scrollHeight;
         if ((scrollTop + innerHeight) > (scrollHeight * .80)) {
             var datas = that.state.datas;
-            datas.push()
-            that.setState({datas:datas});
+            var scrollData = that.props.gridData.gridDataSrollAdd;
+            var newDatas = datas.concat(scrollData);
+            that.setState({datas:newDatas});
         }
     },
     buttonClick:function (x) {

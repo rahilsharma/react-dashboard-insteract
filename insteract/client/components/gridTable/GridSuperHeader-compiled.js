@@ -20,9 +20,7 @@ var _reactTransformHmr3 = require('react-transform-hmr');
 
 var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
 
-var _reactDom = require('react-dom');
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
+var _Table = require('material-ui/Table');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31,14 +29,14 @@ var _components = {
 };
 
 var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
-    filename: 'C:/Users/Rahil/WebstormProjects/insteract/insteract/client/components/gridTable/GridHeader.js',
+    filename: 'C:/Users/Rahil/WebstormProjects/insteract/insteract/client/components/gridTable/GridSuperHeader.js',
     components: _components,
     locals: [module],
     imports: [_react3.default]
 });
 
 var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
-    filename: 'C:/Users/Rahil/WebstormProjects/insteract/insteract/client/components/gridTable/GridHeader.js',
+    filename: 'C:/Users/Rahil/WebstormProjects/insteract/insteract/client/components/gridTable/GridSuperHeader.js',
     components: _components,
     locals: [],
     imports: [_react3.default, _redboxReact3.default]
@@ -49,35 +47,42 @@ function _wrapComponent(id) {
         return _reactTransformHmr2(_reactTransformCatchErrors2(Component, id), id);
     };
 } /**
-   * Created by Rahil on 20-10-2016.
+   * Created by Rahil on 24-10-2016.
    */
 
+
+var gridSuperInit = {
+    adjustForCheckbox: false,
+    displaySelectAll: false,
+    colSpan: "3",
+    tooltip: "Orders"
+};
+var style = {
+    textAlign: 'center', fontSize: '20px', fontWeight: 'bold'
+};
 
 var GridSuperHeader = _wrapComponent('_component')(_react3.default.createClass({
     displayName: 'GridSuperHeader',
     render: function render() {
         return _react3.default.createElement(
-            'div',
-            { className: 'row', style: { paddingTop: '5px' } },
+            _Table.TableHeader,
+            { adjustForCheckbox: gridSuperInit.adjustForCheckbox, displaySelectAll: gridSuperInit.displaySelectAll },
             _react3.default.createElement(
-                'div',
-                { className: 'col-xs-12 text-center' },
+                _Table.TableRow,
+                null,
                 _react3.default.createElement(
-                    'div',
-                    { style: { height: '300px', width: '100%' } },
-                    _react3.default.createElement('div', { id: 'test' })
+                    _Table.TableHeaderColumn,
+                    { colSpan: '3', tooltip: gridSuperInit.tooltip, style: style },
+                    'Orders'
                 )
             )
         );
     },
 
-    componentDidMount: function componentDidMount() {
-        var config = this.props.graphConfig;
-        _reactDom2.default.render(_react3.default.createElement(ReactHighcharts, { config: config }), document.getElementById('test'));
-    }
+    componentDidMount: function componentDidMount() {}
 
 }));
 
 exports.default = GridSuperHeader;
 
-//# sourceMappingURL=GridHeader-compiled.js.map
+//# sourceMappingURL=GridSuperHeader-compiled.js.map
