@@ -41,14 +41,14 @@ var _components = {
 };
 
 var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
-    filename: 'C:/Users/Rahil/WebstormProjects/insteract/insteract/client/components/gridTable/gridTable.js',
+    filename: 'C:/Users/Rahil/WebstormProjects/insteract/insteract/client/components/gridTable/GridTable.js',
     components: _components,
     locals: [module],
     imports: [_react3.default]
 });
 
 var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
-    filename: 'C:/Users/Rahil/WebstormProjects/insteract/insteract/client/components/gridTable/gridTable.js',
+    filename: 'C:/Users/Rahil/WebstormProjects/insteract/insteract/client/components/gridTable/GridTable.js',
     components: _components,
     locals: [],
     imports: [_react3.default, _redboxReact3.default]
@@ -74,6 +74,16 @@ var GridTable = _wrapComponent('_component')(_react3.default.createClass({
     },
     render: function render() {
         var datas = this.state.datas;
+        var orderingInformation = this.state.order;
+        var arrrow;
+        var styleOrderingArrow = {
+            marginTop: '3px'
+        };
+        if (orderingInformation == 1) {
+            arrrow = _react3.default.createElement(_arrowUpward2.default, { style: styleOrderingArrow });
+        } else {
+            arrrow = _react3.default.createElement(_arrowDownward2.default, { style: styleOrderingArrow });
+        }
         var rows = [];
         for (var i = 0; i < datas.length; i++) {
             rows.push(_react3.default.createElement(
@@ -135,7 +145,7 @@ var GridTable = _wrapComponent('_component')(_react3.default.createClass({
                             _Table.TableRowColumn,
                             { style: { fontSize: '16px', fontWeight: 'bold', cursor: 'pointer' } },
                             'Date ',
-                            _react3.default.createElement(_arrowDownward2.default, { style: { marginTop: '3px' } })
+                            arrrow
                         ),
                         _react3.default.createElement(
                             _Table.TableRowColumn,
@@ -173,7 +183,7 @@ var GridTable = _wrapComponent('_component')(_react3.default.createClass({
     componentDidMount: function componentDidMount() {
         document.getElementById("rahilCustomTable").addEventListener("scroll", this.handleScroll);
         this.setState({
-            datas: this.props.gridData.gridDataArrayAsc
+            datas: this.props.gridData.gridDataArrayAsc, order: 1
         });
     },
     handleScroll: function handleScroll() {
@@ -199,4 +209,4 @@ var GridTable = _wrapComponent('_component')(_react3.default.createClass({
 }));
 exports.default = GridTable;
 
-//# sourceMappingURL=gridTable-compiled.js.map
+//# sourceMappingURL=GridTable-compiled.js.map

@@ -15,6 +15,17 @@ const GridTable = React.createClass({
     },
     render(){
         var datas = this.state.datas;
+        var orderingInformation = this.state.order;
+        var arrrow ;
+        const styleOrderingArrow = {
+            marginTop:'3px'
+        }
+        if (orderingInformation == 1){
+            arrrow = <ArrowUpward style={styleOrderingArrow}/>;
+        }
+        else {
+            arrrow = <ArrowDownward style={styleOrderingArrow}/>;
+        }
         var rows = [];
         for (var i=0;i<datas.length;i++){
             rows.push(<TableRow>
@@ -39,7 +50,7 @@ const GridTable = React.createClass({
                 </TableHeader>
                 <TableBody  displayRowCheckbox={false}>
                     <TableRow >
-                        <TableRowColumn  style={{fontSize:'16px',fontWeight:'bold',cursor:'pointer'}} >Date <ArrowDownward style={{marginTop:'3px'}}></ArrowDownward></TableRowColumn>
+                        <TableRowColumn  style={{fontSize:'16px',fontWeight:'bold',cursor:'pointer'}} >Date {arrrow}</TableRowColumn>
                         <TableRowColumn style={{fontSize:'16px',fontWeight:'bold'}}>Buyer</TableRowColumn>
                         <TableRowColumn style={{fontSize:'16px',fontWeight:'bold'}}>Items</TableRowColumn>
                         <TableRowColumn style={{fontSize:'16px',fontWeight:'bold'}} >Total</TableRowColumn>
@@ -62,7 +73,7 @@ const GridTable = React.createClass({
     componentDidMount:function () {
         document.getElementById("rahilCustomTable").addEventListener("scroll", this.handleScroll);
         this.setState({
-            datas:this.props.gridData.gridDataArrayAsc
+            datas:this.props.gridData.gridDataArrayAsc,order:1
         })
     },
     handleScroll:function () {
