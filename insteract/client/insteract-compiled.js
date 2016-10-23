@@ -96,6 +96,8 @@ function _wrapComponent(id) {
 //data variable till backend api is not integrated
 
 
+var backendUrl = "http://localhost:9000/";
+var USE_BACKEND = false; // uses the data folder ///make it true
 var Insteract = _wrapComponent('_component')(_react3.default.createClass({
     displayName: 'Insteract',
     render: function render() {
@@ -106,9 +108,9 @@ var Insteract = _wrapComponent('_component')(_react3.default.createClass({
                 'div',
                 null,
                 _react3.default.createElement(_AppBar2.default, { title: _AppData2.default.title, iconClassNameRight: _AppData2.default.iconClassNameRight }),
-                _react3.default.createElement(_ChartComponent2.default, { graphConfig: _ChartData2.default }),
-                _react3.default.createElement(_Cards2.default, { recordsData: _RecordsData2.default }),
-                _react3.default.createElement(_GridTable2.default, { gridData: _gridData2.default })
+                _react3.default.createElement(_ChartComponent2.default, { USE_BACKEND: USE_BACKEND, backendUrl: backendUrl, graphConfig: _ChartData2.default }),
+                _react3.default.createElement(_Cards2.default, { USE_BACKEND: USE_BACKEND, backendUrl: backendUrl, recordsData: _RecordsData2.default }),
+                _react3.default.createElement(_GridTable2.default, { USE_BACKEND: USE_BACKEND, backendUrl: backendUrl, gridData: _gridData2.default })
             )
         );
     },

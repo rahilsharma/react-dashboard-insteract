@@ -14,15 +14,17 @@ import graphConfig from './data/ChartData';
 import appData from './data/AppData';
 import recordsData from './data/RecordsData';
 import gridData from './data/gridData';
+const backendUrl = "http://localhost:9000/";
+const USE_BACKEND=false; // uses the data folder ///make it true
 const Insteract = React.createClass({
     render() {
         return (
             <MuiThemeProvider>
                 <div>
                     <AppBar title={appData.title} iconClassNameRight={appData.iconClassNameRight}/>
-                        <ChartComponent graphConfig={graphConfig} />
-                        <Cards recordsData={recordsData}/>
-                        <GridTable gridData={gridData}/>
+                        <ChartComponent USE_BACKEND={USE_BACKEND} backendUrl={backendUrl} graphConfig={graphConfig} />
+                        <Cards USE_BACKEND={USE_BACKEND} backendUrl={backendUrl} recordsData={recordsData}/>
+                        <GridTable USE_BACKEND={USE_BACKEND} backendUrl={backendUrl} gridData={gridData}/>
                 </div>
             </MuiThemeProvider>
         )
