@@ -1,5 +1,5 @@
 import React from 'react';
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
+import {Table, TableBody,  TableRow, TableRowColumn} from 'material-ui/Table';
 import DialogExampleSimple from './SimpleDialog';
 import ArrowDownward from 'material-ui/svg-icons/navigation/arrow-downward';
 import ArrowUpward from 'material-ui/svg-icons/navigation/arrow-upward';

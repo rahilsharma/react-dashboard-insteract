@@ -2,28 +2,32 @@
  * Created by Rahil on 20-10-2016.
  */
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {TableRow, TableRowColumn} from 'material-ui/Table';
 
+const style = {
+    fontSize:'16px',fontWeight:'bold'
+};
+const stylePointer = {
+    fontSize:'16px',fontWeight:'bold',cursor:'pointer'
+}
 
-const GridSuperHeader = React.createClass({
+const GridHeader = React.createClass({
     render(){
+        let arrow = this.props.arrowDirection;
         return (
-
-            <div className="row" style={{paddingTop:'5px'}}>
-                <div className="col-xs-12 text-center" >
-                    <div style={{height: '300px', width: '100%'}}>
-                        <div id="test"></div>
-                    </div>
-                </div>
-            </div>
-
+            <TableRow >
+                <TableRowColumn  style={stylePointer} >Date {arrow}</TableRowColumn>
+                <TableRowColumn style={style}>Buyer</TableRowColumn>
+                <TableRowColumn style={style}>Items</TableRowColumn>
+                <TableRowColumn style={style} >Total</TableRowColumn>
+                <TableRowColumn style={style}>Details</TableRowColumn>
+            </TableRow>
         )
     },
     componentDidMount: function () {
-        var config = this.props.graphConfig;
-        ReactDOM.render(React.createElement(ReactHighcharts, {config: config}), document.getElementById('test'));
+
     }
 
 });
 
-export default GridSuperHeader;
+export default GridHeader;
