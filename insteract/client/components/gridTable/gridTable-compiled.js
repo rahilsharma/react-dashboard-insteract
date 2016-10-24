@@ -34,10 +34,6 @@ var _arrowUpward = require('material-ui/svg-icons/navigation/arrow-upward');
 
 var _arrowUpward2 = _interopRequireDefault(_arrowUpward);
 
-var _GridSuperHeader = require('./GridSuperHeader');
-
-var _GridSuperHeader2 = _interopRequireDefault(_GridSuperHeader);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _components = {
@@ -73,6 +69,15 @@ var gridInit = {
 };
 var divStyle = {
     marginTop: '5px'
+};
+var gridSuperInit = {
+    adjustForCheckbox: false,
+    displaySelectAll: false,
+    colSpan: "3",
+    tooltip: "Orders"
+};
+var style = {
+    textAlign: 'center', fontSize: '20px', fontWeight: 'bold'
 };
 var GridTable = _wrapComponent('_component')(_react3.default.createClass({
     displayName: 'GridTable',
@@ -133,7 +138,19 @@ var GridTable = _wrapComponent('_component')(_react3.default.createClass({
             _react3.default.createElement(
                 _Table.Table,
                 { id: gridInit.tableId, height: gridInit.height, fixedHeader: gridInit.fixedHeader, selectable: gridInit.selectable, onCellClick: this.sortTable },
-                _react3.default.createElement(_GridSuperHeader2.default, null),
+                _react3.default.createElement(
+                    _Table.TableHeader,
+                    { adjustForCheckbox: gridSuperInit.adjustForCheckbox, displaySelectAll: gridSuperInit.displaySelectAll },
+                    _react3.default.createElement(
+                        _Table.TableRow,
+                        null,
+                        _react3.default.createElement(
+                            _Table.TableHeaderColumn,
+                            { colSpan: '3', tooltip: gridSuperInit.tooltip, style: style },
+                            'Orders'
+                        )
+                    )
+                ),
                 _react3.default.createElement(
                     _Table.TableBody,
                     { displayRowCheckbox: gridInit.tbodydisplayRowCheckbox },

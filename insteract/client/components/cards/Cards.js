@@ -25,11 +25,13 @@ const Cards = React.createClass({
             fetch(this.props.backendUrl + "getInitialData", {
                 method: 'get',  mode: 'cors',
             }).then(function(response) {
-               console.log("got response");
-               console.log(response);
+                this.setState({
+                    recordsData:response
+                })
             }).catch(function(err) {
                 // Error :(
                 console.log(err);
+                //show some alert message or something
             });
         }
         else {

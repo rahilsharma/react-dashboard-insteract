@@ -23,7 +23,7 @@ const chartConfig = {
         color: "white"
     },
     subtitle:{
-        text:'20 Oct 2016 - 20 Nov 2016',color:'white',fontFamily: 'Roboto',
+        text:'16 Oct 2016 - 22 Nov 2016',color:'white',fontFamily: 'Roboto',
         color: "white"
     },
 };

@@ -1,9 +1,8 @@
 import React from 'react';
-import {Table, TableBody,  TableRow, TableRowColumn} from 'material-ui/Table';
+import {Table, TableBody,  TableRow, TableRowColumn,TableHeader, TableHeaderColumn} from 'material-ui/Table';
 import DialogExampleSimple from './SimpleDialog';
 import ArrowDownward from 'material-ui/svg-icons/navigation/arrow-downward';
 import ArrowUpward from 'material-ui/svg-icons/navigation/arrow-upward';
-import GridSuperHeader from './GridSuperHeader';
 const gridInit = {
     tableId : "customTableIdRahil",
     height:'300px',
@@ -13,6 +12,15 @@ const gridInit = {
 };
 const divStyle= {
     marginTop:'5px'
+}
+const gridSuperInit = {
+    adjustForCheckbox:false,
+    displaySelectAll:false,
+    colSpan:"3",
+    tooltip:"Orders"
+}
+const style = {
+    textAlign: 'center',fontSize:'20px' , fontWeight:'bold'
 }
 const GridTable = React.createClass({
     getInitialState:function () {
@@ -49,7 +57,13 @@ const GridTable = React.createClass({
         return(
         <div style={divStyle}>
             <Table id={gridInit.tableId} height={gridInit.height} fixedHeader={gridInit.fixedHeader} selectable={gridInit.selectable} onCellClick={this.sortTable} >
-                <GridSuperHeader/>
+                <TableHeader adjustForCheckbox={gridSuperInit.adjustForCheckbox} displaySelectAll={gridSuperInit.displaySelectAll}>
+                    <TableRow>
+                        <TableHeaderColumn colSpan="3" tooltip={gridSuperInit.tooltip} style={style}>
+                            Orders
+                        </TableHeaderColumn>
+                    </TableRow>
+                </TableHeader>
                 <TableBody  displayRowCheckbox={gridInit.tbodydisplayRowCheckbox}>
                     <TableRow >
                         <TableRowColumn  style={{fontSize:'16px',fontWeight:'bold',cursor:'pointer'}} >Date {arrrow}</TableRowColumn>

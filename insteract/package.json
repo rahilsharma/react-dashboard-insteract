@@ -47,7 +47,8 @@
     "webpack-hot-middleware": "^2.10.0",
     "highcharts":"*",
     "react-highcharts":"*",
-    "material-ui": "^0.15.0","react-tap-event-plugin":"*"
+    "material-ui": "^0.15.0","react-tap-event-plugin":"*",
+    "es-ajax":"*"
   },
   "devDependencies": {
     "expect": "^1.18.0",
